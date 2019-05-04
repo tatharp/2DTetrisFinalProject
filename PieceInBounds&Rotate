@@ -51,32 +51,73 @@ public class Tetromino : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Time.time - fall >= fallSpeed)
         {
-            transform.position += new Vector3(0, -1, 0);
-
-            fall = Time.time;
+                      transform.position += new Vector3(0, -1, 0);
 
             if (CheckIsValidPosition())
             {
-
+                FindObjectOfType<Game>().UpdateGrid(this);
             }
             else
             {
                 transform.position += new Vector3(0, 1, 0);
+
+                FindObjectOfType<Game>().DeleteRow();
+
+                if (FindObjectOfType<Game>().CheckIsAboveGrid(this))
+                {
+                    FindObjectOfType<Game>().GameOver();
+                }
+
+                enabled = false;
+
+                FindObjectOfType<Game>().SpawnNewPiece();
             }
+            fall = Time.time;
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            transform.Rotate(0, 0, 90);
-
-            if (CheckIsValidPosition())
+                   {
+            if (letRotate)
             {
-               
-            }
-            else
-            {
-                transform.Rotate(0, 0, -90);
-            }
+                if(limitRotate)
+                {
+                    if (transform.rotation.eulerAngles.z >= 90)
+                    {
+                        transform.Rotate(0, 0, -90);
+                    }
+                    else
+                    {
+                        transform.Rotate(0, 0, 90);
+                    }
+                }
+                else
+                {
+                    transform.Rotate(0, 0, 90);
 
+                    if (CheckIsValidPosition())
+                    {
+                        FindObjectOfType<Game>().UpdateGrid(this);
+                    }
+                    else
+                    {
+                        if (limitRotate)
+                        {
+                            if (transform.rotation.eulerAngles.z >= 90)
+                            {
+                                transform.Rotate(0, 0, -90);
+                            }
+                            else
+                            {
+                                transform.Rotate(0, 0, 90);
+                            }
+                        }
+                        else
+                        {
+                            transform.Rotate(0, 0, -90);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -91,3 +132,6 @@ public class Tetromino : MonoBehaviour
                 return false;
             }
         }
+    return true;
+   }
+   }
