@@ -1,0 +1,125 @@
+<Project>
+  <Name>Tetris2D</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>UMLTetris</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Tetromino</Name>
+        <Access>Public</Access>
+        <Location left="88" top="54" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Float Fall</Member>
+        <Member type="Field">Float fallSpeed</Member>
+        <Member type="Field">public bool limitRotate</Member>
+        <Member type="Field">public bool letRotate</Member>
+        <Member type="Method">public void CheckUserInput()</Member>
+        <Member type="Method">public void Start()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Menu</Name>
+        <Access>Public</Access>
+        <Location left="427" top="38" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int GamesPlayed</Member>
+        <Member type="Field">string Name</Member>
+        <Member type="Method">public void PlayAgain()</Member>
+        <Member type="Method">public void StartGame()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Game</Name>
+        <Access>Public</Access>
+        <Location left="281" top="286" />
+        <Size width="162" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public int gridWidth</Member>
+        <Member type="Field">public static int gridHeight</Member>
+        <Member type="Method">public bool CheckIsAboveGrid()</Member>
+        <Member type="Method">public bool IsFullRowAt()</Member>
+        <Member type="Method">public void DeletePiece()</Member>
+        <Member type="Method">public void MoveRowDown()</Member>
+        <Member type="Method">public void MoveAllRowsDown()</Member>
+        <Member type="Method">public void Delete()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">public void Spawn()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Scoring</Name>
+        <Access>Public</Access>
+        <Location left="488" top="370" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int Level</Member>
+        <Member type="Field">int score</Member>
+        <Member type="Method">public void LevelModifier()</Member>
+        <Member type="Method">public void TetrisCompleted()</Member>
+        <Member type="Method">public void LinesCleared()</Member>
+        <Member type="Method">public void TSpins()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TetroPieces</Name>
+        <Access>Public</Access>
+        <Location left="52" top="350" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void SizeOf()</Member>
+        <Member type="Method">public void Weight()</Member>
+        <Member type="Method">public void NewMethod()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>503</X>
+          <Y>338</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
